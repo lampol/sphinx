@@ -1,0 +1,17 @@
+{
+    "name": "lampol/sphinx",
+    "description": "中文搜索解决方案之sphinx",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lampol",
+            "email": "807968192@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+	"psr-4":{"lampol\\":"src/"}
+    }
+}

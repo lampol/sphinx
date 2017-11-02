@@ -1,36 +1,10 @@
-# sphinx
-中文搜索解决方案之sphinx
+<?php
 
-## 安装sphinx服务端
-
-### 下载 
-
-> 注意安装MySQL
-
-```
-wget http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz
-
-解压  编译 
-
-./configure  --prefix=/usr/local/sphinx  --with-mysql
-
-配置 sphinx.conf 
-
-首相启动  indexer  --all  生成索引
-
-然后启动  searched 
-
-
-```
-
-##   使用教程
-
-```
+require ( "vendor/autoload.php" );
 
 use lampol\SphinxClient;
 
 $sc = new SphinxClient ();
-
 
 $words = $_POST['keywords'];
 $host = "localhost";
@@ -58,6 +32,3 @@ $res = $sc->Query ( $words, $index );
 echo '<pre>';
 var_dump($res);
 echo '</pre>';
-
-
-```

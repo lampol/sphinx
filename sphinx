@@ -2,7 +2,8 @@
   
 . /etc/rc.d/init.d/functions  
   
-appName="Sphinx"  
+appName="sphinx"  
+count=`ps -ef| grep searchd|grep -v grep|wc -l`
   
 stop(){  
     /usr/local/sphinx/bin/searchd -c /usr/local/sphinx/etc/sphinx.conf --stop > /dev/null 2>&1   
@@ -16,6 +17,11 @@ stop(){
 }  
   
 start(){  
+
+     [[ $count -ne 0 ]] && stop 
+
+     indexer
+
     /usr/local/sphinx/bin/searchd -c /usr/local/sphinx/etc/sphinx.conf > /dev/null 2>&1   
         ret=$?  
         if [ $ret -eq 0 ]; then  
@@ -41,8 +47,6 @@ indexer(){
   
 case $1 in  
     restart)  
-    stop  
-    indexer  
     start  
     ;;  
   

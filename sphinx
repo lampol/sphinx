@@ -1,4 +1,6 @@
 #!/bin/sh  
+
+#chkconfig:2345 55 75 
   
 . /etc/rc.d/init.d/functions  
   
